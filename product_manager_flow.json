@@ -1,0 +1,743 @@
+{
+  "name": "Database Product Manager",
+  "description": "AI asistent pro spravu produktove databaze",
+  "data": {
+    "nodes": [
+      {
+        "width": 384,
+        "height": 328,
+        "id": "ChatInput-xKj2P",
+        "type": "ChatInput",
+        "data": {
+          "type": "ChatInput",
+          "node": {
+            "template": {
+              "files": {
+                "required": false,
+                "placeholder": "",
+                "show": true,
+                "name": "files",
+                "value": "",
+                "display_name": "Files",
+                "advanced": false,
+                "dynamic": false,
+                "info": "",
+                "type": "file",
+                "list": true
+              },
+              "input_value": {
+                "required": true,
+                "placeholder": "Zeptejte se na produkty...",
+                "show": true,
+                "name": "input_value",
+                "value": "",
+                "display_name": "Text",
+                "advanced": false,
+                "input_types": [
+                  "Message"
+                ],
+                "dynamic": false,
+                "info": "",
+                "type": "str"
+              },
+              "sender": {
+                "required": false,
+                "placeholder": "",
+                "show": true,
+                "name": "sender",
+                "value": "User",
+                "display_name": "Sender Type",
+                "advanced": false,
+                "options": [
+                  "Machine",
+                  "User"
+                ],
+                "dynamic": false,
+                "info": "",
+                "type": "str"
+              },
+              "sender_name": {
+                "required": false,
+                "placeholder": "",
+                "show": true,
+                "name": "sender_name",
+                "value": "User",
+                "display_name": "Sender Name",
+                "advanced": false,
+                "dynamic": false,
+                "info": "",
+                "type": "str"
+              },
+              "session_id": {
+                "required": false,
+                "placeholder": "",
+                "show": true,
+                "name": "session_id",
+                "value": "",
+                "display_name": "Session ID",
+                "advanced": true,
+                "dynamic": false,
+                "info": "",
+                "type": "str"
+              }
+            },
+            "description": "Vstup od uzivatele pro chat",
+            "display_name": "Chat Input",
+            "documentation": "",
+            "base_classes": [
+              "Message"
+            ],
+            "name": "ChatInput",
+            "output_types": [
+              "Message"
+            ]
+          }
+        },
+        "position": {
+          "x": 250,
+          "y": 350
+        },
+        "selected": false,
+        "positionAbsolute": {
+          "x": 250,
+          "y": 350
+        },
+        "dragging": false
+      },
+      {
+        "width": 384,
+        "height": 271,
+        "id": "ChatOutput-B3nL9",
+        "type": "ChatOutput",
+        "data": {
+          "type": "ChatOutput",
+          "node": {
+            "template": {
+              "input_value": {
+                "required": true,
+                "placeholder": "",
+                "show": true,
+                "name": "input_value",
+                "value": "",
+                "display_name": "Text",
+                "advanced": false,
+                "input_types": [
+                  "Message"
+                ],
+                "dynamic": false,
+                "info": "",
+                "type": "str"
+              },
+              "sender": {
+                "required": false,
+                "placeholder": "",
+                "show": true,
+                "name": "sender",
+                "value": "Machine",
+                "display_name": "Sender Type",
+                "advanced": false,
+                "options": [
+                  "Machine",
+                  "User"
+                ],
+                "dynamic": false,
+                "info": "",
+                "type": "str"
+              },
+              "sender_name": {
+                "required": false,
+                "placeholder": "",
+                "show": true,
+                "name": "sender_name",
+                "value": "AI",
+                "display_name": "Sender Name",
+                "advanced": false,
+                "dynamic": false,
+                "info": "",
+                "type": "str"
+              },
+              "session_id": {
+                "required": false,
+                "placeholder": "",
+                "show": true,
+                "name": "session_id",
+                "value": "",
+                "display_name": "Session ID",
+                "advanced": true,
+                "dynamic": false,
+                "info": "",
+                "type": "str"
+              }
+            },
+            "description": "Vystup od AI asistenta",
+            "display_name": "Chat Output",
+            "documentation": "",
+            "base_classes": [
+              "Message"
+            ],
+            "name": "ChatOutput",
+            "output_types": [
+              "Message"
+            ]
+          }
+        },
+        "position": {
+          "x": 1800,
+          "y": 350
+        },
+        "selected": false,
+        "positionAbsolute": {
+          "x": 1800,
+          "y": 350
+        },
+        "dragging": false
+      },
+      {
+        "width": 384,
+        "height": 626,
+        "id": "OpenAIModel-Pm8K4",
+        "type": "OpenAIModel",
+        "data": {
+          "type": "OpenAIModel",
+          "node": {
+            "template": {
+              "max_tokens": {
+                "required": false,
+                "placeholder": "",
+                "show": true,
+                "name": "max_tokens",
+                "value": null,
+                "display_name": "Max Tokens",
+                "advanced": true,
+                "dynamic": false,
+                "info": "",
+                "type": "int"
+              },
+              "model_kwargs": {
+                "required": false,
+                "placeholder": "",
+                "show": true,
+                "name": "model_kwargs",
+                "value": {},
+                "display_name": "Model Kwargs",
+                "advanced": true,
+                "dynamic": false,
+                "info": "",
+                "type": "dict"
+              },
+              "model_name": {
+                "required": false,
+                "placeholder": "",
+                "show": true,
+                "name": "model_name",
+                "value": "gpt-4o-mini",
+                "display_name": "Model Name",
+                "advanced": false,
+                "options": [
+                  "gpt-4o",
+                  "gpt-4o-mini",
+                  "gpt-4-turbo",
+                  "gpt-4",
+                  "gpt-3.5-turbo"
+                ],
+                "dynamic": false,
+                "info": "",
+                "type": "str"
+              },
+              "openai_api_base": {
+                "required": false,
+                "placeholder": "",
+                "show": true,
+                "name": "openai_api_base",
+                "value": "",
+                "display_name": "OpenAI API Base",
+                "advanced": true,
+                "dynamic": false,
+                "info": "",
+                "type": "str"
+              },
+              "openai_api_key": {
+                "required": false,
+                "placeholder": "",
+                "show": true,
+                "name": "openai_api_key",
+                "value": "",
+                "display_name": "OpenAI API Key",
+                "advanced": false,
+                "dynamic": false,
+                "info": "",
+                "type": "str",
+                "password": true
+              },
+              "temperature": {
+                "required": false,
+                "placeholder": "",
+                "show": true,
+                "name": "temperature",
+                "value": 0.7,
+                "display_name": "Temperature",
+                "advanced": false,
+                "dynamic": false,
+                "info": "",
+                "type": "float"
+              }
+            },
+            "description": "OpenAI Large Language Model",
+            "display_name": "OpenAI",
+            "documentation": "",
+            "base_classes": [
+              "BaseLanguageModel",
+              "LanguageModel"
+            ],
+            "name": "OpenAIModel",
+            "output_types": [
+              "LanguageModel"
+            ]
+          }
+        },
+        "position": {
+          "x": 700,
+          "y": 150
+        },
+        "selected": false,
+        "positionAbsolute": {
+          "x": 700,
+          "y": 150
+        },
+        "dragging": false
+      },
+      {
+        "width": 384,
+        "height": 427,
+        "id": "Agent-R7wX3",
+        "type": "AgentInitializer",
+        "data": {
+          "type": "AgentInitializer",
+          "node": {
+            "template": {
+              "agent_description": {
+                "required": false,
+                "placeholder": "",
+                "show": true,
+                "name": "agent_description",
+                "value": "Asistent pro spravu databaze produktu",
+                "display_name": "Agent Description",
+                "advanced": false,
+                "dynamic": false,
+                "info": "",
+                "type": "str"
+              },
+              "llm": {
+                "required": true,
+                "placeholder": "",
+                "show": true,
+                "name": "llm",
+                "value": "",
+                "display_name": "Language Model",
+                "advanced": false,
+                "input_types": [
+                  "LanguageModel"
+                ],
+                "dynamic": false,
+                "info": "",
+                "type": "LanguageModel"
+              },
+              "memory": {
+                "required": false,
+                "placeholder": "",
+                "show": true,
+                "name": "memory",
+                "value": "",
+                "display_name": "Memory",
+                "advanced": false,
+                "input_types": [
+                  "BaseChatMemory"
+                ],
+                "dynamic": false,
+                "info": "",
+                "type": "BaseChatMemory"
+              },
+              "system_message": {
+                "required": false,
+                "placeholder": "",
+                "show": true,
+                "name": "system_message",
+                "value": "Jsi AI asistent pro spravu databaze produktu v e-shopu.\n\nMas k dispozici nastroje pro:\n- Vyhledavani produktu podle nazvu nebo kategorie\n- Pridavni novych produktu\n- Aktualizaci stavu skladu\n- Zobrazeni vsech produktu\n\nVzdy komunikuj v cestine, buď pratelsky a profesionalni. Kdyz zobrazujes produkty, uved jejich ID, nazev, cenu, pocet kusu a kategorii prehledne formatovane.",
+                "display_name": "System Message",
+                "advanced": false,
+                "dynamic": false,
+                "info": "",
+                "type": "str",
+                "multiline": true
+              },
+              "tools": {
+                "required": false,
+                "placeholder": "",
+                "show": true,
+                "name": "tools",
+                "value": "",
+                "display_name": "Tools",
+                "advanced": false,
+                "input_types": [
+                  "Tool"
+                ],
+                "dynamic": false,
+                "info": "",
+                "type": "Tool",
+                "list": true
+              }
+            },
+            "description": "Inicializace AI agenta s nastroji",
+            "display_name": "Agent",
+            "documentation": "",
+            "base_classes": [
+              "AgentExecutor"
+            ],
+            "name": "AgentInitializer",
+            "output_types": [
+              "AgentExecutor"
+            ]
+          }
+        },
+        "position": {
+          "x": 1200,
+          "y": 300
+        },
+        "selected": false,
+        "positionAbsolute": {
+          "x": 1200,
+          "y": 300
+        },
+        "dragging": false
+      },
+      {
+        "width": 384,
+        "height": 347,
+        "id": "Memory-K2nF8",
+        "type": "ConversationBufferMemory",
+        "data": {
+          "type": "ConversationBufferMemory",
+          "node": {
+            "template": {
+              "input_key": {
+                "required": false,
+                "placeholder": "",
+                "show": true,
+                "name": "input_key",
+                "value": "input",
+                "display_name": "Input Key",
+                "advanced": false,
+                "dynamic": false,
+                "info": "",
+                "type": "str"
+              },
+              "memory_key": {
+                "required": false,
+                "placeholder": "",
+                "show": true,
+                "name": "memory_key",
+                "value": "chat_history",
+                "display_name": "Memory Key",
+                "advanced": false,
+                "dynamic": false,
+                "info": "",
+                "type": "str"
+              },
+              "output_key": {
+                "required": false,
+                "placeholder": "",
+                "show": true,
+                "name": "output_key",
+                "value": "output",
+                "display_name": "Output Key",
+                "advanced": false,
+                "dynamic": false,
+                "info": "",
+                "type": "str"
+              },
+              "return_messages": {
+                "required": false,
+                "placeholder": "",
+                "show": true,
+                "name": "return_messages",
+                "value": true,
+                "display_name": "Return Messages",
+                "advanced": false,
+                "dynamic": false,
+                "info": "",
+                "type": "bool"
+              }
+            },
+            "description": "Buffer pamet pro konverzaci",
+            "display_name": "Conversation Buffer Memory",
+            "documentation": "",
+            "base_classes": [
+              "BaseChatMemory"
+            ],
+            "name": "ConversationBufferMemory",
+            "output_types": [
+              "BaseChatMemory"
+            ]
+          }
+        },
+        "position": {
+          "x": 700,
+          "y": 500
+        },
+        "selected": false,
+        "positionAbsolute": {
+          "x": 700,
+          "y": 500
+        },
+        "dragging": false
+      },
+      {
+        "width": 384,
+        "height": 689,
+        "id": "PythonFunction-SearchProducts",
+        "type": "PythonFunction",
+        "data": {
+          "type": "PythonFunction",
+          "node": {
+            "template": {
+              "code": {
+                "required": true,
+                "placeholder": "",
+                "show": true,
+                "name": "code",
+                "value": "import sqlite3\nimport json\nfrom langflow.custom import Component\nfrom langflow.schema import Data\n\nclass SearchProductsTool(Component):\n    display_name = \"Search Products\"\n    description = \"Vyhleda produkty v databazi podle nazvu nebo kategorie\"\n    \n    def build(self, query: str) -> Data:\n        \"\"\"Vyhleda produkty podle dotazu\"\"\"\n        try:\n            conn = sqlite3.connect('products.db')\n            cursor = conn.cursor()\n            \n            cursor.execute('''\n                SELECT id, name, price, stock, category \n                FROM products \n                WHERE name LIKE ? OR category LIKE ?\n                ORDER BY category, name\n            ''', (f'%{query}%', f'%{query}%'))\n            \n            results = cursor.fetchall()\n            conn.close()\n            \n            if not results:\n                return Data(\n                    data={\"message\": f\"Nenalezeny zadne produkty pro: {query}\"},\n                    text=f\"Nenalezeny zadne produkty pro: {query}\"\n                )\n            \n            products = []\n            for row in results:\n                products.append({\n                    'id': row[0],\n                    'name': row[1],\n                    'price': row[2],\n                    'stock': row[3],\n                    'category': row[4]\n                })\n            \n            result_text = f\"Nalezeno {len(products)} produktů:\\n\\n\"\n            for p in products:\n                result_text += f\"ID: {p['id']} | {p['name']}\\n\"\n                result_text += f\"  Cena: {p['price']} Kč | Sklad: {p['stock']} ks\\n\"\n                result_text += f\"  Kategorie: {p['category']}\\n\\n\"\n            \n            return Data(\n                data={\"products\": products, \"count\": len(products)},\n                text=result_text\n            )\n            \n        except Exception as e:\n            return Data(\n                data={\"error\": str(e)},\n                text=f\"Chyba pri vyhledavani: {str(e)}\"\n            )",
+                "display_name": "Code",
+                "advanced": false,
+                "dynamic": true,
+                "info": "",
+                "type": "code",
+                "multiline": true
+              }
+            },
+            "description": "Python funkce pro vyhledavani produktu",
+            "display_name": "Search Products Tool",
+            "documentation": "",
+            "base_classes": [
+              "Tool"
+            ],
+            "name": "PythonFunction",
+            "output_types": [
+              "Tool"
+            ]
+          }
+        },
+        "position": {
+          "x": 250,
+          "y": 800
+        },
+        "selected": false,
+        "positionAbsolute": {
+          "x": 250,
+          "y": 800
+        },
+        "dragging": false
+      },
+      {
+        "width": 384,
+        "height": 689,
+        "id": "PythonFunction-AddProduct",
+        "type": "PythonFunction",
+        "data": {
+          "type": "PythonFunction",
+          "node": {
+            "template": {
+              "code": {
+                "required": true,
+                "placeholder": "",
+                "show": true,
+                "name": "code",
+                "value": "import sqlite3\nimport json\nfrom langflow.custom import Component\nfrom langflow.schema import Data\n\nclass AddProductTool(Component):\n    display_name = \"Add Product\"\n    description = \"Prida novy produkt do databáze\"\n    \n    def build(self, name: str, price: float, stock: int, category: str) -> Data:\n        \"\"\"Prida novy produkt\"\"\"\n        try:\n            conn = sqlite3.connect('products.db')\n            cursor = conn.cursor()\n            \n            cursor.execute('''\n                INSERT INTO products (name, price, stock, category)\n                VALUES (?, ?, ?, ?)\n            ''', (name, price, stock, category))\n            \n            product_id = cursor.lastrowid\n            conn.commit()\n            conn.close()\n            \n            product = {\n                'id': product_id,\n                'name': name,\n                'price': price,\n                'stock': stock,\n                'category': category\n            }\n            \n            result_text = f\"Produkt pridan:\\n\\n\"\n            result_text += f\"ID: {product_id}\\n\"\n            result_text += f\"Nazev: {name}\\n\"\n            result_text += f\"Cena: {price} Kč\\n\"\n            result_text += f\"Sklad: {stock} ks\\n\"\n            result_text += f\"Kategorie: {category}\"\n            \n            return Data(\n                data={\"message\": \"Produkt pridan\", \"product\": product},\n                text=result_text\n            )\n            \n        except Exception as e:\n            return Data(\n                data={\"error\": str(e)},\n                text=f\"Chyba pri pridavani produktu: {str(e)}\"\n            )",
+                "display_name": "Code",
+                "advanced": false,
+                "dynamic": true,
+                "info": "",
+                "type": "code",
+                "multiline": true
+              }
+            },
+            "description": "Python funkce pro pridaní produktu",
+            "display_name": "Add Product Tool",
+            "documentation": "",
+            "base_classes": [
+              "Tool"
+            ],
+            "name": "PythonFunction",
+            "output_types": [
+              "Tool"
+            ]
+          }
+        },
+        "position": {
+          "x": 700,
+          "y": 800
+        },
+        "selected": false,
+        "positionAbsolute": {
+          "x": 700,
+          "y": 800
+        },
+        "dragging": false
+      },
+      {
+        "width": 384,
+        "height": 689,
+        "id": "PythonFunction-UpdateStock",
+        "type": "PythonFunction",
+        "data": {
+          "type": "PythonFunction",
+          "node": {
+            "template": {
+              "code": {
+                "required": true,
+                "placeholder": "",
+                "show": true,
+                "name": "code",
+                "value": "import sqlite3\nimport json\nfrom langflow.custom import Component\nfrom langflow.schema import Data\n\nclass UpdateStockTool(Component):\n    display_name = \"Update Stock\"\n    description = \"Aktualizuje pocet kusu produktu na sklade\"\n    \n    def build(self, product_id: int, new_stock: int) -> Data:\n        \"\"\"Aktualizuje stav skladu\"\"\"\n        try:\n            conn = sqlite3.connect('products.db')\n            cursor = conn.cursor()\n            \n            # Zkontrolujeme, zda produkt existuje\n            cursor.execute('SELECT * FROM products WHERE id = ?', (product_id,))\n            product = cursor.fetchone()\n            \n            if not product:\n                conn.close()\n                return Data(\n                    data={\"error\": f\"Produkt s ID {product_id} neexistuje\"},\n                    text=f\"Produkt s ID {product_id} nebyl nalezen\"\n                )\n            \n            old_stock = product[3]\n            \n            # Aktualizace skladu\n            cursor.execute(\n                'UPDATE products SET stock = ? WHERE id = ?',\n                (new_stock, product_id)\n            )\n            conn.commit()\n            \n            # Nacteni aktualizovanych dat\n            cursor.execute('SELECT * FROM products WHERE id = ?', (product_id,))\n            updated = cursor.fetchone()\n            conn.close()\n            \n            result_text = f\"Sklad aktualizovan:\\n\\n\"\n            result_text += f\"Produkt: {updated[1]} (ID: {product_id})\\n\"\n            result_text += f\"Stary stav: {old_stock} ks\\n\"\n            result_text += f\"Novy stav: {new_stock} ks\\n\"\n            result_text += f\"Zmena: {new_stock - old_stock:+d} ks\"\n            \n            return Data(\n                data={\n                    \"message\": \"Sklad aktualizovan\",\n                    \"product_id\": product_id,\n                    \"old_stock\": old_stock,\n                    \"new_stock\": new_stock\n                },\n                text=result_text\n            )\n            \n        except Exception as e:\n            return Data(\n                data={\"error\": str(e)},\n                text=f\"Chyba pri aktualizaci skladu: {str(e)}\"\n            )",
+                "display_name": "Code",
+                "advanced": false,
+                "dynamic": true,
+                "info": "",
+                "type": "code",
+                "multiline": true
+              }
+            },
+            "description": "Python funkce pro aktualizaci skladu",
+            "display_name": "Update Stock Tool",
+            "documentation": "",
+            "base_classes": [
+              "Tool"
+            ],
+            "name": "PythonFunction",
+            "output_types": [
+              "Tool"
+            ]
+          }
+        },
+        "position": {
+          "x": 1150,
+          "y": 800
+        },
+        "selected": false,
+        "positionAbsolute": {
+          "x": 1150,
+          "y": 800
+        },
+        "dragging": false
+      },
+      {
+        "width": 384,
+        "height": 689,
+        "id": "PythonFunction-GetAll",
+        "type": "PythonFunction",
+        "data": {
+          "type": "PythonFunction",
+          "node": {
+            "template": {
+              "code": {
+                "required": true,
+                "placeholder": "",
+                "show": true,
+                "name": "code",
+                "value": "import sqlite3\nimport json\nfrom langflow.custom import Component\nfrom langflow.schema import Data\n\nclass GetAllProductsTool(Component):\n    display_name = \"Get All Products\"\n    description = \"Zobrazi vsechny produkty v databazi\"\n    \n    def build(self) -> Data:\n        \"\"\"Vrati vsechny produkty\"\"\"\n        try:\n            conn = sqlite3.connect('products.db')\n            cursor = conn.cursor()\n            \n            cursor.execute('''\n                SELECT id, name, price, stock, category \n                FROM products \n                ORDER BY category, name\n            ''')\n            \n            results = cursor.fetchall()\n            conn.close()\n            \n            if not results:\n                return Data(\n                    data={\"message\": \"Databaze je prazdna\"},\n                    text=\"Databaze neobsahuje zadne produkty\"\n                )\n            \n            products = []\n            for row in results:\n                products.append({\n                    'id': row[0],\n                    'name': row[1],\n                    'price': row[2],\n                    'stock': row[3],\n                    'category': row[4]\n                })\n            \n            # Seskupeni podle kategorii\n            by_category = {}\n            for p in products:\n                cat = p['category']\n                if cat not in by_category:\n                    by_category[cat] = []\n                by_category[cat].append(p)\n            \n            result_text = f\"Celkem {len(products)} produktu:\\n\\n\"\n            \n            for category, items in sorted(by_category.items()):\n                result_text += f\"\\n═══ {category} ═══\\n\\n\"\n                for p in items:\n                    result_text += f\"  [{p['id']}] {p['name']}\\n\"\n                    result_text += f\"      {p['price']} Kč | {p['stock']} ks\\n\\n\"\n            \n            return Data(\n                data={\"products\": products, \"count\": len(products), \"categories\": list(by_category.keys())},\n                text=result_text\n            )\n            \n        except Exception as e:\n            return Data(\n                data={\"error\": str(e)},\n                text=f\"Chyba pri nacitani produktu: {str(e)}\"\n            )",
+                "display_name": "Code",
+                "advanced": false,
+                "dynamic": true,
+                "info": "",
+                "type": "code",
+                "multiline": true
+              }
+            },
+            "description": "Python funkce pro zobrazeni vsech produktu",
+            "display_name": "Get All Products Tool",
+            "documentation": "",
+            "base_classes": [
+              "Tool"
+            ],
+            "name": "PythonFunction",
+            "output_types": [
+              "Tool"
+            ]
+          }
+        },
+        "position": {
+          "x": 1600,
+          "y": 800
+        },
+        "selected": false,
+        "positionAbsolute": {
+          "x": 1600,
+          "y": 800
+        },
+        "dragging": false
+      }
+    ],
+    "edges": [
+      {
+        "source": "ChatInput-xKj2P",
+        "sourceHandle": "{œdataTypeœ:œMessageœ,œidœ:œChatInput-xKj2Pœ,œnameœ:œmessageœ,œoutput_typesœ:[œMessageœ]}",
+        "target": "Agent-R7wX3",
+        "targetHandle": "{œfieldNameœ:œinputœ,œidœ:œAgent-R7wX3œ,œinputTypesœ:[œMessageœ],œtypeœ:œstrœ}",
+        "id": "reactflow__edge-ChatInput-xKj2P{œdataTypeœ:œMessageœ,œidœ:œChatInput-xKj2Pœ,œnameœ:œmessageœ,œoutput_typesœ:[œMessageœ]}-Agent-R7wX3{œfieldNameœ:œinputœ,œidœ:œAgent-R7wX3œ,œinputTypesœ:[œMessageœ],œtypeœ:œstrœ}"
+      },
+      {
+        "source": "Agent-R7wX3",
+        "sourceHandle": "{œdataTypeœ:œMessageœ,œidœ:œAgent-R7wX3œ,œnameœ:œresponseœ,œoutput_typesœ:[œMessageœ]}",
+        "target": "ChatOutput-B3nL9",
+        "targetHandle": "{œfieldNameœ:œinput_valueœ,œidœ:œChatOutput-B3nL9œ,œinputTypesœ:[œMessageœ],œtypeœ:œstrœ}",
+        "id": "reactflow__edge-Agent-R7wX3{œdataTypeœ:œMessageœ,œidœ:œAgent-R7wX3œ,œnameœ:œresponseœ,œoutput_typesœ:[œMessageœ]}-ChatOutput-B3nL9{œfieldNameœ:œinput_valueœ,œidœ:œChatOutput-B3nL9œ,œinputTypesœ:[œMessageœ],œtypeœ:œstrœ}"
+      },
+      {
+        "source": "OpenAIModel-Pm8K4",
+        "sourceHandle": "{œdataTypeœ:œLanguageModelœ,œidœ:œOpenAIModel-Pm8K4œ,œnameœ:œllmœ,œoutput_typesœ:[œLanguageModelœ]}",
+        "target": "Agent-R7wX3",
+        "targetHandle": "{œfieldNameœ:œllmœ,œidœ:œAgent-R7wX3œ,œinputTypesœ:[œLanguageModelœ],œtypeœ:œLanguageModelœ}",
+        "id": "reactflow__edge-OpenAIModel-Pm8K4{œdataTypeœ:œLanguageModelœ,œidœ:œOpenAIModel-Pm8K4œ,œnameœ:œllmœ,œoutput_typesœ:[œLanguageModelœ]}-Agent-R7wX3{œfieldNameœ:œllmœ,œidœ:œAgent-R7wX3œ,œinputTypesœ:[œLanguageModelœ],œtypeœ:œLanguageModelœ}"
+      },
+      {
+        "source": "Memory-K2nF8",
+        "sourceHandle": "{œdataTypeœ:œBaseChatMemoryœ,œidœ:œMemory-K2nF8œ,œnameœ:œmemoryœ,œoutput_typesœ:[œBaseChatMemoryœ]}",
+        "target": "Agent-R7wX3",
+        "targetHandle": "{œfieldNameœ:œmemoryœ,œidœ:œAgent-R7wX3œ,œinputTypesœ:[œBaseChatMemoryœ],œtypeœ:œBaseChatMemoryœ}",
+        "id": "reactflow__edge-Memory-K2nF8{œdataTypeœ:œBaseChatMemoryœ,œidœ:œMemory-K2nF8œ,œnameœ:œmemoryœ,œoutput_typesœ:[œBaseChatMemoryœ]}-Agent-R7wX3{œfieldNameœ:œmemoryœ,œidœ:œAgent-R7wX3œ,œinputTypesœ:[œBaseChatMemoryœ],œtypeœ:œBaseChatMemoryœ}"
+      },
+      {
+        "source": "PythonFunction-SearchProducts",
+        "sourceHandle": "{œdataTypeœ:œToolœ,œidœ:œPythonFunction-SearchProductsœ,œnameœ:œtoolœ,œoutput_typesœ:[œToolœ]}",
+        "target": "Agent-R7wX3",
+        "targetHandle": "{œfieldNameœ:œtoolsœ,œidœ:œAgent-R7wX3œ,œinputTypesœ:[œToolœ],œtypeœ:œToolœ}",
+        "id": "reactflow__edge-PythonFunction-SearchProducts{œdataTypeœ:œToolœ,œidœ:œPythonFunction-SearchProductsœ,œnameœ:œtoolœ,œoutput_typesœ:[œToolœ]}-Agent-R7wX3{œfieldNameœ:œtoolsœ,œidœ:œAgent-R7wX3œ,œinputTypesœ:[œToolœ],œtypeœ:œToolœ}"
+      },
+      {
+        "source": "PythonFunction-AddProduct",
+        "sourceHandle": "{œdataTypeœ:œToolœ,œidœ:œPythonFunction-AddProductœ,œnameœ:œtoolœ,œoutput_typesœ:[œToolœ]}",
+        "target": "Agent-R7wX3",
+        "targetHandle": "{œfieldNameœ:œtoolsœ,œidœ:œAgent-R7wX3œ,œinputTypesœ:[œToolœ],œtypeœ:œToolœ}",
+        "id": "reactflow__edge-PythonFunction-AddProduct{œdataTypeœ:œToolœ,œidœ:œPythonFunction-AddProductœ,œnameœ:œtoolœ,œoutput_typesœ:[œToolœ]}-Agent-R7wX3{œfieldNameœ:œtoolsœ,œidœ:œAgent-R7wX3œ,œinputTypesœ:[œToolœ],œtypeœ:œToolœ}"
+      },
+      {
+        "source": "PythonFunction-UpdateStock",
+        "sourceHandle": "{œdataTypeœ:œToolœ,œidœ:œPythonFunction-UpdateStockœ,œnameœ:œtoolœ,œoutput_typesœ:[œToolœ]}",
+        "target": "Agent-R7wX3",
+        "targetHandle": "{œfieldNameœ:œtoolsœ,œidœ:œAgent-R7wX3œ,œinputTypesœ:[œToolœ],œtypeœ:œToolœ}",
+        "id": "reactflow__edge-PythonFunction-UpdateStock{œdataTypeœ:œToolœ,œidœ:œPythonFunction-UpdateStockœ,œnameœ:œtoolœ,œoutput_typesœ:[œToolœ]}-Agent-R7wX3{œfieldNameœ:œtoolsœ,œidœ:œAgent-R7wX3œ,œinputTypesœ:[œToolœ],œtypeœ:œToolœ}"
+      },
+      {
+        "source": "PythonFunction-GetAll",
+        "sourceHandle": "{œdataTypeœ:œToolœ,œidœ:œPythonFunction-GetAllœ,œnameœ:œtoolœ,œoutput_typesœ:[œToolœ]}",
+        "target": "Agent-R7wX3",
+        "targetHandle": "{œfieldNameœ:œtoolsœ,œidœ:œAgent-R7wX3œ,œinputTypesœ:[œToolœ],œtypeœ:œToolœ}",
+        "id": "reactflow__edge-PythonFunction-GetAll{œdataTypeœ:œToolœ,œidœ:œPythonFunction-GetAllœ,œnameœ:œtoolœ,œoutput_typesœ:[œToolœ]}-Agent-R7wX3{œfieldNameœ:œtoolsœ,œidœ:œAgent-R7wX3œ,œinputTypesœ:[œToolœ],œtypeœ:œToolœ}"
+      }
+    ],
+    "viewport": {
+      "x": 0,
+      "y": 0,
+      "zoom": 0.8
+    }
+  }
+}
